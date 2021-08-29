@@ -8,7 +8,7 @@ async function run() {
             brokers: ["localhost:9092"]
         })
         const admin = kafka.admin()
-        
+
         console.log('Conntecting...')
         await admin.connect()
         console.log('Conntected...')
@@ -17,7 +17,8 @@ async function run() {
             topics: [{
                 topic: "Users",
                 numPartitions: 2
-            }]
+            }],
+            waitForLeaders: true
         })
 
         await admin.disconnect()
