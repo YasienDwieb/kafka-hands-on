@@ -13,12 +13,11 @@ async function run() {
         await admin.connect()
         console.log('Conntected...')
 
-        admin.createTopics({
+        await admin.createTopics({
             topics: [{
                 topic: "Users",
                 numPartitions: 2
-            }],
-            waitForLeaders: true
+            }]
         })
 
         await admin.disconnect()
